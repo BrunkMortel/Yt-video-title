@@ -1,0 +1,6 @@
+{
+    "name": "Youtube music title video",
+    "description": "Display the current music title on OBS",
+    "version": "1.0",
+    "manifest_version": 3
+  }
