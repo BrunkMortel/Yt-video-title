@@ -31,23 +31,27 @@ function scan() {
       }
       last_text = "";
       setInterval(() => {
-        //Merci Brunk_Mortel pour la query
-        let chapterName =
-          document.querySelector(
-            "#movie_player > div.ytp-chrome-bottom > div.ytp-chrome-controls > div.ytp-left-controls > div.ytp-chapter-container > button > div.ytp-chapter-title-content"
-          ).innerText || "No chapter found";
-        let title = document.querySelector(
-          ".title.ytd-video-primary-info-renderer > yt-formatted-string.style-scope.ytd-video-primary-info-renderer"
-        ).innerHTML;
+        chrome.storage.sync.get("enabled", ({ enabled }) => {
+          if (enabled == true) {
+            //Merci Brunk_Mortel pour la query
+            let chapterName =
+              document.querySelector(
+                "#movie_player > div.ytp-chrome-bottom > div.ytp-chrome-controls > div.ytp-left-controls > div.ytp-chapter-container > button > div.ytp-chapter-title-content"
+              ).innerText || "No chapters found";
+            let title = document.querySelector(
+              ".title.ytd-video-primary-info-renderer > yt-formatted-string.style-scope.ytd-video-primary-info-renderer"
+            ).innerHTML;
 
-        if (!chapterName) {
-          //On peut essayer de récup des trucs?
-        } else {
-          if (chapterName != last_text) {
-            updateText(chapterName, title);
+            if (!chapterName) {
+              //On peut essayer de récup des trucs?
+            } else {
+              if (chapterName != last_text) {
+                updateText(chapterName, title);
+              }
+              last_text = chapterName;
+            }
           }
-          last_text = chapterName;
-        }
+        });
       }, 1000);
     });
   });
@@ -62,7 +66,9 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (changeInfo.status == "complete" && tab.active) {
     chrome.storage.sync.get("enabled", ({ enabled }) => {
+      console.log("enabled", enabled)
       if(enabled == true){
+        console.log("Inserting script")
       chrome.scripting.executeScript({
         target: { tabId: tab.id },
         function: scan,
