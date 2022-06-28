@@ -21,7 +21,7 @@ Dans chrome/Opera...
 
 Dans OBS:
 
-3) Créer une nouvelle source "Navigateur" avec l'url copiée (Taille recommendée 1000x100)
+3) Créer une nouvelle source "Navigateur" avec l'url copiée (Taille recommendée 1000x150)
 
 Sur Youtube:
 
@@ -30,8 +30,12 @@ Sur Youtube:
 ## Changer la couleur du text
 Dans les propriétées de la source navigateur:
 
+
 Titre: CSS personnalisé > Rajouter un tag css h1
+
 Sous-Titre: CSS personnalisé > Rajouter un tag css h2
+
+
 Exemple:
 ```css
 body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; }
