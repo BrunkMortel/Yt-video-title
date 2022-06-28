@@ -9,6 +9,7 @@ Merci à Brunk_Mortel pour la query (popup.js)
 2) Dezip le zip (oui)
 
 Dans chrome/Opera...
+
 3) Aller dans le menu extensions (extensions > Gérer les extensions)
 4) Activer le mode développeur
 5) Cliquer "Charger l'extension non empaquetée" et choisir le dossier de l'extension
