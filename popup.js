@@ -103,3 +103,15 @@ document.getElementById("stop").addEventListener("click", async () => {
   enabled = false;
   chrome.storage.sync.set({ enabled });
 });
+
+setInterval((() => {
+  chrome.storage.sync.get("enabled", ({ enabled }) => {
+    if(enabled == true){
+      document.getElementById("status").innerHTML = "Status: Running"
+      document.getElementById("status").style.color = "green";
+    }else{
+      document.getElementById("status").innerHTML = "Status: Not running"
+      document.getElementById("status").style.color = "red";
+    }
+  })
+}),2000)
