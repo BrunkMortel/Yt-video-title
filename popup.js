@@ -24,9 +24,8 @@ function scan() {
         console.log("This plugin only works for youtube.com")
         return}
 
-      let description = document.querySelector("#movie_player > div.ytp-chrome-bottom > div.ytp-chrome-controls > div.ytp-left-controls > div.ytp-chapter-container > button > div.ytp-chapter-title-content").innerText
-
-      async function updateText(text){ 
+      
+      async function updateText(text,title){ 
         console.log("Updating text:", text)
         let rawResponse = await fetch(server_url+"/update", {
           method: 'POST',
@@ -34,13 +33,15 @@ function scan() {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({"text":text, "uuid":uuid})
+          body: JSON.stringify({"text":text, "uuid":uuid, "title":title})
         });
       }
       last_text = ""
       setInterval((()=>{
         //Merci Brunk_Mortel pour la query
        let chapterName = document.querySelector("#movie_player > div.ytp-chrome-bottom > div.ytp-chrome-controls > div.ytp-left-controls > div.ytp-chapter-container > button > div.ytp-chapter-title-content").innerText || "No chapter found";
+       let title = document.querySelector(".title.ytd-video-primary-info-renderer > yt-formatted-string.style-scope.ytd-video-primary-info-renderer").innerHTML
+
        if(!chapterName){
         //On peut essayer de récup des trucs?
 
