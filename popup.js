@@ -104,7 +104,7 @@ document.getElementById("stop").addEventListener("click", async () => {
   chrome.storage.sync.set({ enabled });
 });
 
-setInterval((() => {
+function updateStatus(){
   chrome.storage.sync.get("enabled", ({ enabled }) => {
     if(enabled == true){
       document.getElementById("status").innerHTML = "Status: Running"
@@ -113,5 +113,8 @@ setInterval((() => {
       document.getElementById("status").innerHTML = "Status: Not running"
       document.getElementById("status").style.color = "red";
     }
-  })
-}),2000)
+})
+}
+
+setInterval(updateStatus,2000)
+updateStatus()
