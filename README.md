@@ -30,10 +30,13 @@ Sur Youtube:
 ## Changer la couleur du text
 Dans les propriétées de la source navigateur:
 
-CSS personnalisé > Rajouter un tag css h1
-
+Titre: CSS personnalisé > Rajouter un tag css h1
+Sous-Titre: CSS personnalisé > Rajouter un tag css h2
 Exemple:
 ```css
 body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; }
 h1 {color: rgba(235, 52, 210, 0.9); }
+h2 {color: rgba(235, 52, 210, 0.9); }
 ```
+
+PS: Le serveur ne stocke aucune données
