@@ -27,7 +27,8 @@ Sur Youtube:
 Dans les propriétées de la source navigateur:
 
 CSS personnalisé > Rajouter un tag css h1
-Exemple
+
+Exemple:
 ```css
 body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; }
 h1 {color: rgba(235, 52, 210, 0.9); }
