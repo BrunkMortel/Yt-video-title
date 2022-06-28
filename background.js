@@ -62,7 +62,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (changeInfo.status == "complete" && tab.active) {
     chrome.storage.sync.get("enabled", ({ enabled }) => {
-      if(enabled){
+      if(enabled == true){
       chrome.scripting.executeScript({
         target: { tabId: tab.id },
         function: scan,
