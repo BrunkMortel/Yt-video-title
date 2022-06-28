@@ -24,6 +24,8 @@ function scan() {
         console.log("This plugin only works for youtube.com")
         return}
 
+      let description = document.querySelector("#movie_player > div.ytp-chrome-bottom > div.ytp-chrome-controls > div.ytp-left-controls > div.ytp-chapter-container > button > div.ytp-chapter-title-content").innerText
+
       async function updateText(text){ 
         console.log("Updating text:", text)
         let rawResponse = await fetch(server_url+"/update", {
@@ -40,7 +42,8 @@ function scan() {
         //Merci Brunk_Mortel pour la query
        let chapterName = document.querySelector("#movie_player > div.ytp-chrome-bottom > div.ytp-chrome-controls > div.ytp-left-controls > div.ytp-chapter-container > button > div.ytp-chapter-title-content").innerText || "No chapter found";
        if(!chapterName){
-        //scrap part
+        //On peut essayer de récup des trucs?
+
        }else{
         if(chapterName != last_text){
           updateText(chapterName)
@@ -78,5 +81,6 @@ document.getElementById("start").addEventListener("click", async () => {
     target: { tabId: tab.id },
     function: scan,
   });
+
 });
  
