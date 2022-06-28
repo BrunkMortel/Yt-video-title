@@ -46,9 +46,6 @@ function scan() {
           title = ""
         }
 
-        document.getElementById("display_title").innerHTML = title
-        document.getElementById("display_chapters").innerHTML = text
-
         console.log("Updating text:", text);
         let rawResponse = await fetch(server_url + "/update", {
           method: "POST",
