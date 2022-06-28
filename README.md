@@ -27,7 +27,7 @@ Sur Youtube:
 
 4) Aller sur la video et cliquer "Start Plugin"
 
-## Changer la couleur du text
+## Changer la couleur du text et d'autres aspects
 Dans les propriétées de la source navigateur:
 
 
@@ -43,4 +43,5 @@ h1 {color: rgba(235, 52, 210, 0.9); }
 h2 {color: rgba(235, 52, 210, 0.9); }
 ```
 
+# On peut aussi changer touts les attributs css avec cet méthode comme la police du texte
 PS: Le serveur ne stocke aucune données
