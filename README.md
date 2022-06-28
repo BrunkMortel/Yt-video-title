@@ -1,5 +1,7 @@
 # Extension OBS pour les segments de video youtube
 
+Les fautes dans ce texte, c'est car c'est la merde, j'ai un BBK à prendre
+
 ## Instalation
 
 1) Télécharger ce github (Code --> Télécharger)
