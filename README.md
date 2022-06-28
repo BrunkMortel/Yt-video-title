@@ -17,10 +17,18 @@ Dans chrome/Opera...
 
 Dans OBS:
 
-3) Créer une nouvelle source "Navigateur" avec l'url copiée
+3) Créer une nouvelle source "Navigateur" avec l'url copiée (Taille recommendée 1000x100)
 
 Sur Youtube:
 
 4) Aller sur la video et cliquer "Start Plugin"
 
-ça devrait marcher et s'update sur OBS 
+## Changer la couleur du text
+Dans les propriétées de la source navigateur:
+
+CSS personnalisé > Rajouter un tag css h1
+Exemple
+```css
+body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; }
+h1 {color: rgba(235, 52, 210, 0.9); }
+```
