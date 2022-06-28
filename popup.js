@@ -7,8 +7,13 @@ const server_url = "https://Yt-chapters-extension.omega77073.repl.co";
 
 chrome.storage.sync.get("uuid", ({ uuid }) => {
   document.getElementById("token").value = uuid;
-  document.getElementById("obs").value =
-    "https://Yt-chapters-extension.omega77073.repl.co/instances?uuid=" + uuid;
+
+  if(uuid == "No token found"){
+    document.getElementById("obs").value = "No token found"
+  }else{
+    document.getElementById("obs").value = "https://Yt-chapters-extension.omega77073.repl.co/instances?uuid=" + uuid;
+  }
+
 });
 
 function scan() {
