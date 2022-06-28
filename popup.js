@@ -78,6 +78,9 @@ document.getElementById("start").addEventListener("click", async () => {
   console.log("Starting...")
 
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  enabled = true
+  chrome.storage.sync.set({enabled});
+
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     function: scan,
@@ -85,3 +88,9 @@ document.getElementById("start").addEventListener("click", async () => {
 
 });
  
+document.getElementById("stop").addEventListener("click", async () => {
+  console.log("Stopping...")
+  enabled = false
+  chrome.storage.sync.set({enabled});
+
+});
