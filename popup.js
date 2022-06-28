@@ -47,7 +47,7 @@ function scan() {
 
        }else{
         if(chapterName != last_text){
-          updateText(chapterName)
+          updateText(chapterName,title)
         }
         last_text = chapterName
        }
