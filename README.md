@@ -21,7 +21,7 @@ Dans chrome/Opera...
 
 Dans OBS:
 
-3) Créer une nouvelle source "Navigateur" avec l'url copiée (Taille recommendée 1000x100)
+3) Créer une nouvelle source "Navigateur" avec l'url copiée (Taille recommendée 1000x150)
 
 Sur Youtube:
 
