@@ -12,6 +12,9 @@ function scan() {
       return;
     }
     chrome.storage.sync.get("server_url", ({ server_url }) => {
+      
+      // Brunk_Mortel : Not needed anymore (script only install on youtube.com)
+      /*
       let url = window.location.href;
       let domain = new URL(url);
       domain = domain.hostname.replace("www.", "");
@@ -20,7 +23,8 @@ function scan() {
         console.log("This plugin only works for youtube.com");
         return;
       }
-
+      */
+      
       async function updateText(text, title,te,ce) {
         if(ce == false){
           text = ""
@@ -93,11 +97,24 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     chrome.storage.sync.get("enabled", ({ enabled }) => {
       console.log("enabled", enabled)
       if(enabled == true){
-        console.log("Inserting script")
-      chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        function: scan,
-      });
+        
+        
+        // Brunk_Mortel : Adding a check on the current tab url before adding the script
+        var matchUrl = "https://www.youtube.com/watch*";
+        if(RegExp(matchUrl.replace(/\*/g, "[^]*")).test(tab.url))
+        {
+          console.log("Inserting script");
+          
+          chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            function: scan,
+          });
+        }
+        else
+        {
+          console.log("This script can only be run on youtube.com");
+        }
+        
     }
     });
   }
